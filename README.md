@@ -1,4 +1,4 @@
-# System Simulation: Autómata Off-Lattice
+# System Simulation: Automata Off-Lattice
 
 
 ## Build

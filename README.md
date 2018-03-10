@@ -3,6 +3,14 @@
 
 ## Build
 
+To build the project, it is necessary to have Maven and Java 1.8 installed. Then, run
+
+```
+$ mvn clean package
+```
+
+This will generate a jar in the `target` folder.
+
 ## Execute
 
 ## Help

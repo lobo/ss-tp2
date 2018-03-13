@@ -82,6 +82,8 @@ public final class Main {
 		Double RC = Double.valueOf(args[4]);
 		Double V = Double.valueOf(args[5]);
 		Double noise = Double.valueOf(args[6]);
+		
+		
 	}
 	
 	private static void consoleLogging(final Map<Particle, List<Particle>> nnl, final long start) {		

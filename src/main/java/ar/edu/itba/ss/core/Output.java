@@ -15,7 +15,7 @@ public class Output {
 		return instance;
 	}
 
-	public void write(Set<MobileParticle> set, double time){
+	public void write(Set<MobileParticle> set, double time, Integer numOfSimulation){
 		if(time == 0){
 			try{
 				PrintWriter pw = new PrintWriter("output.txt");

@@ -2,8 +2,6 @@
 
 # System Simulation: Cellular Automaton
 
-...
-
 ## Build
 
 To build the project, it is necessary to have _Maven +3.5.0_, and

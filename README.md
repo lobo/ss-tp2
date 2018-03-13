@@ -20,8 +20,19 @@ This will generate a _\*.jar_ in the `target` folder.
 In the root folder (after build):
 
 ```
-$ java -jar target/tp2-1.0-SNAPSHOT.jar <arguments>
+$ java -jar target/tp2-1.0-SNAPSHOT.jar cycles dt N R L RC V noise
 ```
+
+Where:
+
+* `[cycles]` is the number of cycles.
+* `[dt]` is the delta time, if too big: simulations will go fast, if too littl: simulations will go slower.
+* `[N]` is the number of particles.
+* `[R]` is the radius.
+* `[L]` is the length of the side of the square.
+* `[RC]` is the radius.
+* `[V]` is the speed for all the particles.
+* `[noise]` is the noise. 
 
 ## Help
 

@@ -24,8 +24,7 @@ public final class Main {
 	
 	private static final String HELP_TEXT = "Cell Index Method Implementation.\n" +
 										"Arguments: \n" + 
-										"* cell <N> <R> <L> <RC> <true | false> <M> <filename> \n" +
-										"* cellfile <staticFile> <dynamicFile> <RC> <true | false> <M> <filename> \n";
+										"* cycles dt N R L RC V noise \n";
 	
 	enum EXIT_CODE {
 		NO_ARGS(-1), 
@@ -51,13 +50,26 @@ public final class Main {
 		if (args.length == 0) {
 			System.out.println("[FAIL] - No arguments passed. Try 'help' for more information.");
 			exit(EXIT_CODE.NO_ARGS);
+		} else if (args.length != 8 || args.length != 1) {
+			System.out.println("[FAIL] - Wrong number of arguments. Try 'help' for more information.");
+			exit(EXIT_CODE.BAD_N_ARGUMENTS);
 		}
+		
+		switch (args[0]) {
+			case "help":
+				System.out.println(HELP_TEXT);
+				break;
+			default:
+				System.out.println("[FAIL] - Invalid argument. Try 'help' for more information.");
+				exit(EXIT_CODE.BAD_ARGUMENT);
+				break;
+		}
+		
 		System.out.println("A cellular automaton...");
 		final long start = System.nanoTime();
 		
 		generate(args, start);
 
-		
 		printExecutionTime(start);
 	}
 	

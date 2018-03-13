@@ -16,11 +16,11 @@ public class Parser implements ParticleGenerator{
 
 		try {
 			
-			File dynamicFIle = new File(dynamicFilePath);
+			File dynamicFile = new File(dynamicFilePath);
 			
 			try { 
 				double radius;
-				Scanner dynamicRead = new Scanner(dynamicFIle);
+				Scanner dynamicRead = new Scanner(dynamicFile);
 				
 				dynamicRead.next(); // avoid t0 in Dynamic File
 			

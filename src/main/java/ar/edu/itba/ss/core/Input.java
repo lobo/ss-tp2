@@ -8,11 +8,11 @@ import java.util.stream.Stream;
 
 import ar.edu.itba.ss.core.interfaces.ParticleGenerator;
 
-public class Parser implements ParticleGenerator{
+public class Input implements ParticleGenerator{
 	
 	static List<MobileParticle> particles = new ArrayList<MobileParticle>();
 	
-	public Parser (String dynamicFilePath) {
+	public Input (String dynamicFilePath) {
 
 		try {
 			
@@ -64,4 +64,3 @@ public class Parser implements ParticleGenerator{
 		return 0;
 	}
 }
-

@@ -19,12 +19,12 @@ import ar.edu.itba.ss.core.Particle;
 	*/
 
 
-// cycles dt N R L RC V n
+// cycles dt N L RC V n
 public final class Main {
 	
 	private static final String HELP_TEXT = "Cell Index Method Implementation.\n" +
 										"Arguments: \n" + 
-										"* cycles dt N R L RC V noise \n";
+										"* cycles dt N L RC V noise \n";
 	
 	enum EXIT_CODE {
 		NO_ARGS(-1), 
@@ -50,7 +50,7 @@ public final class Main {
 		if (args.length == 0) {
 			System.out.println("[FAIL] - No arguments passed. Try 'help' for more information.");
 			exit(EXIT_CODE.NO_ARGS);
-		} else if (args.length != 8 || args.length != 1) {
+		} else if (args.length != 7 || args.length != 1) {
 			System.out.println("[FAIL] - Wrong number of arguments. Try 'help' for more information.");
 			exit(EXIT_CODE.BAD_N_ARGUMENTS);
 		}
@@ -73,8 +73,15 @@ public final class Main {
 		printExecutionTime(start);
 	}
 	
+	// cycles dt N L RC V noise
 	private static void generate(String[] args, final long start) {
-		
+		Integer cycles = Integer.valueOf(args[0]);
+		Double dt = Double.valueOf(args[1]);
+		Integer N = Integer.valueOf(args[2]);
+		Double L = Double.valueOf(args[3]);
+		Double RC = Double.valueOf(args[4]);
+		Double V = Double.valueOf(args[5]);
+		Double noise = Double.valueOf(args[6]);
 	}
 	
 	private static void consoleLogging(final Map<Particle, List<Particle>> nnl, final long start) {		

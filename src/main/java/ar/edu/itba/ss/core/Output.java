@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Set;
+import java.util.List;
 
 public class Output {
 	private static Output instance = null;
@@ -15,8 +15,8 @@ public class Output {
 		return instance;
 	}
 
-	public void write(Set<MobileParticle> set, double time, Integer numOfSimulation){
-		if(time == 0){
+	public void write(List<MobileParticle> list, int cycle){
+		if(cycle == 0){
 			try{
 				PrintWriter pw = new PrintWriter("output.txt");
 				pw.close();
@@ -25,8 +25,9 @@ public class Output {
 			}
 		}
 		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("output.txt", true)))) {
-			out.write(String.valueOf(time) + "\n");
-			for(MobileParticle p: set){
+			out.write(String.valueOf(list.size()) + "\n");
+			out.write(String.valueOf(cycle) + "\n");
+			for(MobileParticle p: list){
 				out.write(p.getX() + " " +  p.getY() + " " + p.getθ() + "\n");
 			}
 		}catch (IOException e) {

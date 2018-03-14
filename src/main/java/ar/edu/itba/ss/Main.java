@@ -8,8 +8,12 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 import ar.edu.itba.ss.Main.EXIT_CODE;
+import ar.edu.itba.ss.core.CellularAutomaton;
+import ar.edu.itba.ss.core.MobileGenerator;
+import ar.edu.itba.ss.core.Output;
 import ar.edu.itba.ss.core.Particle;
 
 /**
@@ -24,7 +28,7 @@ public final class Main {
 	
 	private static final String HELP_TEXT = "Cell Index Method Implementation.\n" +
 										"Arguments: \n" + 
-										"* cycles dt N L RC V noise \n";
+										"cycles dt N L RC V noise \n";
 	
 	enum EXIT_CODE {
 		NO_ARGS(-1), 
@@ -50,27 +54,18 @@ public final class Main {
 		if (args.length == 0) {
 			System.out.println("[FAIL] - No arguments passed. Try 'help' for more information.");
 			exit(EXIT_CODE.NO_ARGS);
-		} else if (args.length != 7 || args.length != 1) {
+		} else if (args.length != 7 && args.length != 1) {
 			System.out.println("[FAIL] - Wrong number of arguments. Try 'help' for more information.");
 			exit(EXIT_CODE.BAD_N_ARGUMENTS);
 		}
-		
-		switch (args[0]) {
-			case "help":
-				System.out.println(HELP_TEXT);
-				break;
-			default:
-				System.out.println("[FAIL] - Invalid argument. Try 'help' for more information.");
-				exit(EXIT_CODE.BAD_ARGUMENT);
-				break;
+				
+		if (args[0].equals("help")) {
+			System.out.println(HELP_TEXT);
+		} else {
+			final long start = System.nanoTime();
+			generate(args, start);
+			printExecutionTime(start);
 		}
-		
-		System.out.println("A cellular automaton...");
-		final long start = System.nanoTime();
-		
-		generate(args, start);
-
-		printExecutionTime(start);
 	}
 	
 	// cycles dt N L RC V noise
@@ -83,7 +78,42 @@ public final class Main {
 		Double V = Double.valueOf(args[5]);
 		Double noise = Double.valueOf(args[6]);
 		
+		// Generador móvil:
+		final MobileGenerator generator = MobileGenerator.of(N)
+				.maxRadius(0)
+				.speed(V)
+				.over(L)
+				.spy(System.out::println)
+				.build();
+
+		// El autómata celular:
+		Output output = Output.getInstace();
+		final CellularAutomaton automaton = CellularAutomaton.from(generator)
+				.spy((k, ps) -> {
+					// Se ejecuta para cada frame:
+					output.write(ps, k);
+					// console logging:
+					//System.out.println("Simulación " + k);
+					//ps.stream().forEach(System.out::println);
+				})
+				.interactionRadius(RC)
+				.spaceOf(L)
+				.step(dt)
+				.noise(noise)
+				.build();
+
+		// Para ver el orden antes de simular:
+		//System.out.println("Orden: " + automaton.getOrder());
+
+		// Simulación:
+		IntStream.range(0, cycles)
+			.forEachOrdered(automaton::advance);
 		
+		// Para ver el orden y el estado luego de simular:
+		//generator.generate().forEachOrdered(System.out::println);
+		
+		
+		//System.out.println("Orden: " + automaton.getOrder());
 	}
 	
 	private static void consoleLogging(final Map<Particle, List<Particle>> nnl, final long start) {		

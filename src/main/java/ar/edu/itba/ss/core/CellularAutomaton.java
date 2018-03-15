@@ -54,12 +54,13 @@
 					.interactionRadius(interactionRadius)
 					.cluster();
 			// Actualizar de forma sincrónica:
+			final double L = space.dimensions().get(0);
 			final List<MobileParticle> particles = nnl.entrySet().stream()
 					.map(e -> {
 						final MobileParticle p = (MobileParticle) e.getKey();
 						final List<Particle> neighbours = e.getValue();
 						neighbours.add(p);
-						return p.move(Δt).rotateTo(
+						return p.move(Δt, L).rotateTo(
 								Θ(neighbours),
 								generator.getSpeed());
 					})

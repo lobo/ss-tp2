@@ -41,9 +41,13 @@
 			return Math.hypot(vx, vy);
 		}
 
-		public MobileParticle move(final double Δt) {
+		public MobileParticle move(final double Δt, final double L) {
+			final double X = x + vx * Δt;
+			final double Y = y + vy * Δt;
+			final double x2 = X < L? (0 < X? X : X + L) : X - L;
+			final double y2 = Y < L? (0 < Y? Y : Y + L) : Y - L;
 			return new MobileParticle(
-					x + vx * Δt, y + vy * Δt, radius, vx, vy);
+					x2, y2, radius, vx, vy);
 		}
 
 		public MobileParticle rotateTo(

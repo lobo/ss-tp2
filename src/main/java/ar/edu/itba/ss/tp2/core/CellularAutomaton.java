@@ -1,5 +1,5 @@
 
-	package ar.edu.itba.ss.core;
+	package ar.edu.itba.ss.tp2.core;
 
 	import java.util.List;
 	import java.util.Map;
@@ -7,6 +7,11 @@
 
 	import static java.util.stream.Collectors.toList;
 
+	import ar.edu.itba.ss.core.CellIndexMethod;
+	import ar.edu.itba.ss.core.NearNeighbourList;
+	import ar.edu.itba.ss.core.OptimalGrid;
+	import ar.edu.itba.ss.core.Particle;
+	import ar.edu.itba.ss.core.SquareSpace;
 	import ar.edu.itba.ss.core.interfaces.DistanceProcessor;
 	import ar.edu.itba.ss.core.interfaces.Space;
 

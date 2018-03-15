@@ -1,14 +1,14 @@
 
-package ar.edu.itba.ss;
+package ar.edu.itba.ss.tp2;
 
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.stream.IntStream;
 
-import ar.edu.itba.ss.core.CellularAutomaton;
-import ar.edu.itba.ss.core.MobileGenerator;
-import ar.edu.itba.ss.core.Output;
+import ar.edu.itba.ss.tp2.core.CellularAutomaton;
+import ar.edu.itba.ss.tp2.core.MobileGenerator;
+import ar.edu.itba.ss.tp2.core.Output;
 
 /**
 	* <p>Punto de entrada principal de la simulación. Se encarga de

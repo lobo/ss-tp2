@@ -1,4 +1,4 @@
-package ar.edu.itba.ss.core;
+package ar.edu.itba.ss.tp2.core;
 
 import java.io.File;
 import java.util.ArrayList;

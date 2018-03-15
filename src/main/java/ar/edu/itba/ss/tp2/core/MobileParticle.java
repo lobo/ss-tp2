@@ -1,5 +1,7 @@
 
-	package ar.edu.itba.ss.core;
+	package ar.edu.itba.ss.tp2.core;
+
+	import ar.edu.itba.ss.core.Particle;
 
 		/**
 		* <p>Extensión de una partícula simple. En este caso, la partícula

@@ -18,8 +18,7 @@ public class Input implements ParticleGenerator{
 			
 			File dynamicFile = new File(dynamicFilePath);
 			
-			try { 
-				double radius;
+			try {
 				Scanner dynamicRead = new Scanner(dynamicFile);
 				
 				dynamicRead.next(); // avoid t0 in Dynamic File

@@ -1,20 +1,14 @@
 
 package ar.edu.itba.ss;
 
-import java.io.File;
 import java.io.FileDescriptor;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.util.List;
-import java.util.Map;
 import java.util.stream.IntStream;
 
-import ar.edu.itba.ss.Main.EXIT_CODE;
 import ar.edu.itba.ss.core.CellularAutomaton;
 import ar.edu.itba.ss.core.MobileGenerator;
 import ar.edu.itba.ss.core.Output;
-import ar.edu.itba.ss.core.Particle;
 
 /**
 	* <p>Punto de entrada principal de la simulación. Se encarga de
@@ -103,20 +97,19 @@ public final class Main {
 				.build();
 
 		// Para ver el orden antes de simular:
-		//System.out.println("Orden: " + automaton.getOrder());
+		System.out.println("Kinetic Order (initial): " + automaton.getOrder());
 
 		// Simulación:
 		IntStream.range(0, cycles)
 			.forEachOrdered(automaton::advance);
-		
+
 		// Para ver el orden y el estado luego de simular:
 		//generator.generate().forEachOrdered(System.out::println);
-		
-		
-		//System.out.println("Orden: " + automaton.getOrder());
+
+		System.out.println("Kinetic Order: " + automaton.getOrder());
 	}
-	
-	private static void consoleLogging(final Map<Particle, List<Particle>> nnl, final long start) {		
+
+	/*private static void consoleLogging(final Map<Particle, List<Particle>> nnl, final long start) {		
 		nnl.forEach((particle, neighbours) -> {
 
 			System.out.println(
@@ -153,7 +146,7 @@ public final class Main {
 		} else {
 			fileLogging(nnl, start, filename);
 		}
-	}
+	}*/
 	
 	private static void printExecutionTime(final long start) {
 		PrintStream consoleStream = new PrintStream(
@@ -165,7 +158,7 @@ public final class Main {
 		System.out.println("\n[DONE]");	
 	}
 	
-	private static String list(final List<Particle> neighbours) {
+	/*private static String list(final List<Particle> neighbours) {
 		String list = "";
 		for (final Particle particle : neighbours) {
 			list += particle.hashCode() + " ";
@@ -174,5 +167,5 @@ public final class Main {
 			return list.substring(0, list.length() - 2);
 		}
 		else return list;
-	}
+	}*/
 }

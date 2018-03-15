@@ -39,11 +39,23 @@ $ java -jar target/tp2-1.0-SNAPSHOT.jar help
 
 ## Input Files Format
 
-...
+There are no input files in this project. All the 
 
 ## Output File Format
 
+The output is a `.txt` file that has the following pattern multiplied by the number of cycles.
+
+```
+number_of_particles
+number_of_cycle
+position_x_particle_1 position_y_particle_1 angle
+position_x_particle_2 position_y_particle_2 angle
+position_x_particle_3 position_y_particle_3 angle
 ...
+position_x_particle_n position_y_particle_n angle
+```
+
+which is then read by a Scientific visualization and analysis software for atomistic simulation data, called [Ovito](http://www.ovito.org/).
 
 ## Developers
 

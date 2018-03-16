@@ -113,8 +113,11 @@
 
 			public Builder(final MobileGenerator generator) {
 				this.generator = generator;
+				this.L = 1.0;
 				this.η = 1.0;
 				this.Δt = 1.0;
+				this.interactionRadius = 1.0;
+				this.spy = (k, ps) -> {};
 			}
 
 			public CellularAutomaton build() {

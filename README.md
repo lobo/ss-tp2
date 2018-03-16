@@ -39,7 +39,7 @@ $ java -jar target/tp2-1.0-SNAPSHOT.jar help
 
 ## Input Files Format
 
-There are no input files in this project. All the 
+There are no input files in this project. All the input is done via parameters sent to the program, as listed in the `Execute` section of this README.
 
 ## Output File Format
 

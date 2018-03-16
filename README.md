@@ -64,6 +64,14 @@ This project has been built, designed and maintained by the following authors:
 * [Daniel Lobo](https://github.com/lobo)
 * [Agustín Golmar](https://github.com/agustin-golmar)
 
+## Videos
+
+Some videos of the animations are listed here:
+
+* [Video1](https://www.youtube.com/watch?v=PR3xM9J5YUc)
+* [Video2](https://www.youtube.com/watch?v=6k6riZO4luU)
+* [Video3](https://www.youtube.com/watch?v=-0rk5B2qxZQ)
+
 ## Bibliography
 
 __"Novel Type of Phase Transition in a System of Self-Driven Particles."__
